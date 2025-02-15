@@ -6,7 +6,7 @@
 #    By: itsiros <itsiros@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/15 16:53:36 by itsiros           #+#    #+#              #
-#    Updated: 2025/02/15 17:52:40 by itsiros          ###   ########.fr        #
+#    Updated: 2025/02/15 18:25:17 by itsiros          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ LIBFT_DIR = Libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
 # Source files
-SRC = src/main.c src/linked_list.c
+SRC = src/main.c src/linked_list.c src/utils.c
 
 # Object files
 OBJ = $(SRC:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: itsiros <itsiros@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 16:26:12 by itsiros           #+#    #+#             */
-/*   Updated: 2025/02/15 17:21:45 by itsiros          ###   ########.fr       */
+/*   Updated: 2025/02/15 23:42:22 by itsiros          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	append(t_node **stack, int num)
 	if (!node)
 		return ;
 	node->number = num;
+	node->next = NULL;
 	if (!*stack)
 	{
 		*stack = node;
@@ -34,5 +35,21 @@ void	append(t_node **stack, int num)
 			current = current->next;
 		current->next = node;
 	}
-	node->next = NULL;
+}
+
+void	free_nodes(t_node **a)
+{
+	t_node	*temp;
+	t_node	*current;
+
+	if (a == NULL)
+		return ;
+	current = *a;
+	while (current)
+	{
+		temp = current->next;
+		free(current);
+		current = temp;
+	}
+	*a = NULL;
 }

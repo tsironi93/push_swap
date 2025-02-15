@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: itsiros <itsiros@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/14 15:23:15 by itsiros           #+#    #+#             */
-/*   Updated: 2025/02/15 18:46:27 by itsiros          ###   ########.fr       */
+/*   Created: 2025/02/15 18:21:07 by itsiros           #+#    #+#             */
+/*   Updated: 2025/02/15 23:38:38 by itsiros          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "../push_swap.h"
 
-# include <stdbool.h>
-# include <unistd.h>
-# include <stdio.h>			//!!!!!!!!
-# include "./Libft/libft.h"
-
-typedef struct s_node
+void	freeav(char **av)
 {
-	int				number;
-	struct s_node	*next;
+	int	i;
 
-}					t_node;
-
-void	append(t_node **stack, int num);
-void	freeav(char **av);
-void	free_nodes(t_node **a);
-
-#endif
+	i = 0;
+	if (av == NULL || *av == NULL)
+		return ;
+	while (av[i])
+	{
+		free(av[i]);
+		i++;
+	}
+	free(av);
+}
