@@ -1,30 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   linked_list.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: itsiros <itsiros@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/14 15:23:15 by itsiros           #+#    #+#             */
-/*   Updated: 2025/02/15 17:52:07 by itsiros          ###   ########.fr       */
+/*   Created: 2025/02/15 16:26:12 by itsiros           #+#    #+#             */
+/*   Updated: 2025/02/15 17:21:45 by itsiros          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "../push_swap.h"
 
-# include <stdbool.h>
-# include <unistd.h>
-# include <stdio.h>			//!!!!!!!!
-# include "./Libft/libft.h"
-
-typedef struct s_node
+void	append(t_node **stack, int num)
 {
-	int				number;
-	struct s_node	*next;
+	t_node	*node;
+	t_node	*current;
 
-}					t_node;
-
-void	append(t_node **stack, int num);
-
-#endif
+	if (!stack)
+		return ;
+	node = malloc(sizeof(t_node));
+	if (!node)
+		return ;
+	node->number = num;
+	if (!*stack)
+	{
+		*stack = node;
+	}
+	else
+	{
+		current = *stack;
+		while (current->next)
+			current = current->next;
+		current->next = node;
+	}
+	node->next = NULL;
+}
