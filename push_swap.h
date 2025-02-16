@@ -6,7 +6,7 @@
 /*   By: itsiros <itsiros@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:23:15 by itsiros           #+#    #+#             */
-/*   Updated: 2025/02/16 00:39:30 by itsiros          ###   ########.fr       */
+/*   Updated: 2025/02/16 02:19:14 by itsiros          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,11 @@ void	free_nodes(t_node **a);
 int		spelling(char *str);
 void	error(t_node **a, char **av, char *str);
 int		check_doubles(t_node *a, int num);
+
+
+void	pa(t_node **a, t_node **b);
+void	pb(t_node **a, t_node **b);
+void	sa(t_node **a);
+void	sb(t_node **a);
 
 #endif

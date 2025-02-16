@@ -6,7 +6,7 @@
 /*   By: itsiros <itsiros@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 16:04:30 by itsiros           #+#    #+#             */
-/*   Updated: 2025/02/16 01:01:03 by itsiros          ###   ########.fr       */
+/*   Updated: 2025/02/16 02:26:39 by itsiros          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,8 @@ int	main(int ac, char **av)
 	}
 	else
 		_stack_init(&a, av + 1);
+	test(a);
+	sa(&a);
 	test(a);
 	free_nodes(&a);
 	return (0);
