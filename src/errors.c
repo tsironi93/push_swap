@@ -6,7 +6,7 @@
 /*   By: itsiros <itsiros@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 00:15:11 by itsiros           #+#    #+#             */
-/*   Updated: 2025/02/16 00:50:31 by itsiros          ###   ########.fr       */
+/*   Updated: 2025/02/16 16:40:33 by itsiros          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	spelling(char *str)
 		return (1);
 	if (*str == '+' && *str == '-' && !(*str >= '0' && *str <= '9'))
 		return (1);
+	str++;
 	while (*str)
 	{
 		if (!(*str >= '0' && *str <= '9'))

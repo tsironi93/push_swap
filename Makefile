@@ -6,7 +6,7 @@
 #    By: itsiros <itsiros@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/15 16:53:36 by itsiros           #+#    #+#              #
-#    Updated: 2025/02/16 15:07:10 by itsiros          ###   ########.fr        #
+#    Updated: 2025/02/16 15:23:36 by itsiros          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,12 @@ CFLAGS = -Wall -Wextra -Werror -O2
 LIBFT_DIR = Libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
+# Source directory
+SRC_DIR = src
+
 # Source files
-SRC = src/main.c src/linked_list.c src/utils.c src/errors.c src/swap.c src/push.c src/rotate.c src/reverse_rotate.c
+SRC = main.c linked_list.c utils.c errors.c swap.c push.c rotate.c reverse_rotate.c
+SRC := $(addprefix $(SRC_DIR)/, $(SRC))
 
 # Object files
 OBJ = $(SRC:.c=.o)
@@ -37,15 +41,12 @@ $(NAME): $(OBJ) $(LIBFT)
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-# Rule to build libft
-$(LIBFT):
-	$(MAKE) -C $(LIBFT_DIR)
-
-# Rule to clean object files and executable
+# Rule to clean object files
 clean:
 	rm -f $(OBJ)
 	$(MAKE) -C $(LIBFT_DIR) clean
 
+# Rule to clean object files and executable
 fclean: clean
 	rm -f $(NAME)
 	$(MAKE) -C $(LIBFT_DIR) fclean
@@ -53,9 +54,9 @@ fclean: clean
 # Rule to rebuild everything
 re: fclean $(NAME)
 
-# Phony targets
-.PHONY: all clean fclean re
+# Rule to build libft
+$(LIBFT):
+	$(MAKE) -C $(LIBFT_DIR)
 
-# Default target
-all: $(NAME)
+.PHONY: clean fclean re
 

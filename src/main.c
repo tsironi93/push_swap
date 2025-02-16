@@ -6,7 +6,7 @@
 /*   By: itsiros <itsiros@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 16:04:30 by itsiros           #+#    #+#             */
-/*   Updated: 2025/02/16 15:05:55 by itsiros          ###   ########.fr       */
+/*   Updated: 2025/02/16 16:36:28 by itsiros          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,16 @@ static void	_stack_init(t_node **a, char **av)
 
 static void	test(t_node *a)
 {
+	if (is_sorted(a))
+		printf("\n\n\n\t---------------!!!SUCCESS!!!---------------\n");
+	else
+		printf("\n\n\n\t---------------!!!FAILURE!!!---------------\n");
 	while (a)
 	{
-		printf("%d\n", a->number);
+		printf("| %d |\n", a->number);
 		a = a->next;
 	}
+	printf("\n\n\n");
 }
 
 static void	_leaks(void)
@@ -90,10 +95,11 @@ int	main(int ac, char **av)
 	}
 	else
 		_stack_init(&a, av + 1);
-	test(a);
-	sa(&a);
-	test(a);
-	rra(&a);
+	if (!is_sorted(a))
+	{
+		if (node_len(a) == 3)
+			sort_3(&a);
+	}
 	test(a);
 	free_nodes(&a);
 	return (0);

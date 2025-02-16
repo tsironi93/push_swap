@@ -6,7 +6,7 @@
 /*   By: itsiros <itsiros@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:23:15 by itsiros           #+#    #+#             */
-/*   Updated: 2025/02/16 15:05:43 by itsiros          ###   ########.fr       */
+/*   Updated: 2025/02/16 16:14:03 by itsiros          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,9 @@ void	rra(t_node **a);
 void	rrb(t_node **b);
 void	rrr(t_node **a, t_node **b);
 
+bool	is_sorted(t_node *a);
+int		node_len(t_node *a);
+t_node	*find_max(t_node *a);
+void	sort_3(t_node **a);
 
 #endif
