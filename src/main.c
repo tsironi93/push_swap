@@ -6,21 +6,53 @@
 /*   By: itsiros <itsiros@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 16:04:30 by itsiros           #+#    #+#             */
-/*   Updated: 2025/02/16 00:09:25 by itsiros          ###   ########.fr       */
+/*   Updated: 2025/02/16 01:01:03 by itsiros          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+static long	ft_latoi(const char *str)
+{
+	int		i;
+	int		sign;
+	long	result;
+
+	i = 0;
+	sign = 1;
+	result = 0;
+	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\v'
+		|| str[i] == '\r' || str[i] == '\n' || str[i] == '\f')
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			sign *= -1;
+		i++;
+	}
+	while ((str[i] >= '0' && str[i] <= '9') && str[i] != '\0')
+	{
+		result = (result * 10) + (str[i] - '0');
+		i++;
+	}
+	return (result * sign);
+}
+
 static void	_stack_init(t_node **a, char **av)
 {
-	int	i;
-	int	num;
+	int		i;
+	long	num;
 
 	i = 0;
 	while (av[i])
 	{
-		num = ft_atoi(av[i]);
+		if (spelling(av[i]))
+			error(a, av, "SPELLING PROBLEM");
+		num = ft_latoi(av[i]);
+		if (num < INT_MIN || num > INT_MAX)
+			error(a, av, "SURPASSED INT");
+		if (check_doubles(*a, num))
+			error(a, av, "DOUBLES FOUND");
 		append(a, num);
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: itsiros <itsiros@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:23:15 by itsiros           #+#    #+#             */
-/*   Updated: 2025/02/15 18:46:27 by itsiros          ###   ########.fr       */
+/*   Updated: 2025/02/16 00:39:30 by itsiros          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdio.h>			//!!!!!!!!
 # include "./Libft/libft.h"
+# include <limits.h>
 
 typedef struct s_node
 {
@@ -28,5 +29,8 @@ typedef struct s_node
 void	append(t_node **stack, int num);
 void	freeav(char **av);
 void	free_nodes(t_node **a);
+int		spelling(char *str);
+void	error(t_node **a, char **av, char *str);
+int		check_doubles(t_node *a, int num);
 
 #endif
