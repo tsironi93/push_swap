@@ -6,13 +6,13 @@
 /*   By: itsiros <itsiros@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 01:33:05 by itsiros           #+#    #+#             */
-/*   Updated: 2025/02/16 02:22:48 by itsiros          ###   ########.fr       */
+/*   Updated: 2025/02/16 14:35:12 by itsiros          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static void push(t_node **dest, t_node ** src)
+static void	push(t_node **dest, t_node **src)
 {
 	t_node	*node;
 
