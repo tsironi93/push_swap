@@ -6,7 +6,7 @@
 /*   By: itsiros <itsiros@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:23:15 by itsiros           #+#    #+#             */
-/*   Updated: 2025/02/16 16:14:03 by itsiros          ###   ########.fr       */
+/*   Updated: 2025/02/17 00:44:45 by itsiros          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ typedef struct s_node
 {
 	int				number;
 	struct s_node	*next;
-
+	bool			min;
+	bool			max;
+	int				target;
 }					t_node;
 
 int		spelling(char *str);
@@ -32,10 +34,11 @@ void	freeav(char **av);
 void	free_nodes(t_node **a);
 void	append(t_node **stack, int num);
 void	error(t_node **a, char **av, char *str);
+int		ft_abs(int a);
 
 
 void	pa(t_node **a, t_node **b);
-void	pb(t_node **a, t_node **b);
+void	pb(t_node **b, t_node **a);
 void	sa(t_node **a);
 void	sb(t_node **a);
 void	ra(t_node **a);
@@ -48,6 +51,9 @@ void	rrr(t_node **a, t_node **b);
 bool	is_sorted(t_node *a);
 int		node_len(t_node *a);
 t_node	*find_max(t_node *a);
+t_node	*find_min(t_node *a);
 void	sort_3(t_node **a);
+
+void	ptob(t_node **a, t_node **b);
 
 #endif

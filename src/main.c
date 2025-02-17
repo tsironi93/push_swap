@@ -6,7 +6,7 @@
 /*   By: itsiros <itsiros@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 16:04:30 by itsiros           #+#    #+#             */
-/*   Updated: 2025/02/16 16:36:28 by itsiros          ###   ########.fr       */
+/*   Updated: 2025/02/17 00:13:26 by itsiros          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,18 +58,36 @@ static void	_stack_init(t_node **a, char **av)
 	}
 }
 
-static void	test(t_node *a)
+static void	test(t_node *a, t_node *b)
 {
-	if (is_sorted(a))
+	if (is_sorted(a) && node_len(b) == 0)
 		printf("\n\n\n\t---------------!!!SUCCESS!!!---------------\n");
 	else
 		printf("\n\n\n\t---------------!!!FAILURE!!!---------------\n");
+	printf("\n---Stack A---\n");
 	while (a)
 	{
-		printf("| %d |\n", a->number);
+		printf("| %d\t|\n", a->number);
 		a = a->next;
 	}
+	printf("\n---Stack B---\n");
+	while (b)
+	{
+		printf("| %d\t|\n", b->number);
+		b = b->next;
+	}
 	printf("\n\n\n");
+}
+
+static void	test2(t_node *a, t_node *b)
+{
+	b = NULL;
+	printf("\n---Stack A: Targets---\n");
+	while (a)
+	{
+		printf("| %d\t|\n", a->target);
+		a = a->next;
+	}
 }
 
 static void	_leaks(void)
@@ -99,8 +117,11 @@ int	main(int ac, char **av)
 	{
 		if (node_len(a) == 3)
 			sort_3(&a);
+		ptob(&a, &b);
 	}
-	test(a);
+	test(a, b);
+	test2(a, b);
+	free_nodes(&b);
 	free_nodes(&a);
 	return (0);
 }

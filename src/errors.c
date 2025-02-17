@@ -6,7 +6,7 @@
 /*   By: itsiros <itsiros@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 00:15:11 by itsiros           #+#    #+#             */
-/*   Updated: 2025/02/16 16:40:33 by itsiros          ###   ########.fr       */
+/*   Updated: 2025/02/16 16:44:42 by itsiros          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,6 @@ int	spelling(char *str)
 
 void	error(t_node **a, char **av, char *str)
 {
-	// free_nodes(a);	
-	// freeav(av);
 	a = NULL;
 	av = NULL;
 	write(1, "ERROR: ", 7);

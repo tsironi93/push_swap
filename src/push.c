@@ -6,7 +6,7 @@
 /*   By: itsiros <itsiros@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 01:33:05 by itsiros           #+#    #+#             */
-/*   Updated: 2025/02/16 14:35:12 by itsiros          ###   ########.fr       */
+/*   Updated: 2025/02/16 23:18:31 by itsiros          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ static void	push(t_node **dest, t_node **src)
 	if (src == NULL)
 		return ;
 	node = *src;
-	(*src) = (*src)->next;
-	if (dest == NULL)
+	*src = (*src)->next;
+	if (*dest == NULL)
 	{
-		(*dest) = node;
+		*dest = node;
 		node->next = NULL;
 	}
 	else
@@ -38,7 +38,7 @@ void	pa(t_node **a, t_node **b)
 	write(1, "pa\n", 3);
 }
 
-void	pb(t_node **a, t_node **b)
+void	pb(t_node **b, t_node **a)
 {
 	push(b, a);
 	write(1, "pb\n", 3);

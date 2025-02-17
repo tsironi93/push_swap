@@ -6,7 +6,7 @@
 /*   By: itsiros <itsiros@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 18:21:07 by itsiros           #+#    #+#             */
-/*   Updated: 2025/02/16 16:21:36 by itsiros          ###   ########.fr       */
+/*   Updated: 2025/02/17 00:52:31 by itsiros          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,26 @@ t_node	*find_max(t_node *a)
 	return (max_node);
 }
 
+t_node	*find_min(t_node *a)
+{
+	int		min;
+	t_node	*min_node;
+
+	if (a == NULL)
+		return (NULL);
+	min = INT_MAX;
+	while (a)
+	{
+		if (a->number < min)
+		{
+			min = a->number;
+			min_node = a;
+		}
+		a = a->next;
+	}
+	return (min_node);
+}
+
 void	sort_3(t_node **a)
 {
 	t_node	*max;
@@ -71,4 +91,11 @@ void	sort_3(t_node **a)
 		rra(a);
 	if ((*a)->number > (*a)->next->number)
 		sa(a);
+}
+
+int	ft_abs(int a)
+{
+	if (a < 0)
+		return (a * -1);
+	return (a);
 }
