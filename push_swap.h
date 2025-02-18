@@ -6,7 +6,7 @@
 /*   By: itsiros <itsiros@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:23:15 by itsiros           #+#    #+#             */
-/*   Updated: 2025/02/18 02:17:01 by itsiros          ###   ########.fr       */
+/*   Updated: 2025/02/18 04:24:27 by itsiros          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_node
 	int				cost;
 	bool			median;
 	int				position;
+	bool			cheapest;
 }					t_node;
 
 int		spelling(char *str);

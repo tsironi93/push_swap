@@ -6,7 +6,7 @@
 /*   By: itsiros <itsiros@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 16:04:30 by itsiros           #+#    #+#             */
-/*   Updated: 2025/02/18 02:03:58 by itsiros          ###   ########.fr       */
+/*   Updated: 2025/02/18 04:34:36 by itsiros          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,8 @@ int	main(int ac, char **av)
 	atexit(leaks);
 	a = NULL;
 	b = NULL;
-	if (ac == 1)
-		return (0);
+	if (ac == 1 || (ac == 2 && !av[1][0]))
+		return (1);
 	if (ac == 2)
 	{
 		av = ft_split(av[1], ' ');
