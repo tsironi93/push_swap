@@ -6,7 +6,7 @@
 #    By: itsiros <itsiros@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/15 16:53:36 by itsiros           #+#    #+#              #
-#    Updated: 2025/02/16 22:44:14 by itsiros          ###   ########.fr        #
+#    Updated: 2025/02/18 02:00:06 by itsiros          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ LIBFT = $(LIBFT_DIR)/libft.a
 SRC_DIR = src
 
 # Source files
-SRC = main.c linked_list.c utils.c errors.c swap.c push.c rotate.c reverse_rotate.c push_swap.c
+SRC = main.c linked_list.c utils.c errors.c swap.c push.c rotate.c reverse_rotate.c push_swap.c tests.c
 SRC := $(addprefix $(SRC_DIR)/, $(SRC))
 
 # Object files

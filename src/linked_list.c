@@ -6,7 +6,7 @@
 /*   By: itsiros <itsiros@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 16:26:12 by itsiros           #+#    #+#             */
-/*   Updated: 2025/02/16 16:16:12 by itsiros          ###   ########.fr       */
+/*   Updated: 2025/02/18 02:11:32 by itsiros          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,15 +56,17 @@ void	free_nodes(t_node **a)
 
 int	node_len(t_node *a)
 {
-	int	len;
+	int		len;
+	t_node	*current;
 
-	len = 0;
 	if (a == NULL)
 		return (0);
-	while (a)
+	current = a;
+	len = 0;
+	while (current)
 	{
 		len++;
-		a = a->next;
+		current = current->next;
 	}
 	return (len);
 }

@@ -6,7 +6,7 @@
 /*   By: itsiros <itsiros@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:23:15 by itsiros           #+#    #+#             */
-/*   Updated: 2025/02/17 00:44:45 by itsiros          ###   ########.fr       */
+/*   Updated: 2025/02/18 02:17:01 by itsiros          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@ typedef struct s_node
 {
 	int				number;
 	struct s_node	*next;
-	bool			min;
-	bool			max;
-	int				target;
+	struct s_node	*target;
+	int				cost;
+	bool			median;
+	int				position;
 }					t_node;
 
 int		spelling(char *str);
@@ -55,5 +56,11 @@ t_node	*find_min(t_node *a);
 void	sort_3(t_node **a);
 
 void	ptob(t_node **a, t_node **b);
+
+
+// -------------Tests---------------------
+void	print_stacks(t_node *a, t_node *b);
+void	print_tc(t_node *a);
+void	leaks(void);
 
 #endif
