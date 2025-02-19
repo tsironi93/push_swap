@@ -6,7 +6,7 @@
 /*   By: itsiros <itsiros@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 00:15:11 by itsiros           #+#    #+#             */
-/*   Updated: 2025/02/19 15:41:54 by itsiros          ###   ########.fr       */
+/*   Updated: 2025/02/19 16:25:26 by itsiros          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ int	check_doubles(t_node *a, int num)
 
 int	spelling(char *str)
 {
-	if (*str != '+' && *str != '-' && *str <= '0' && *str >= '9')
+	if (!(*str == '+' || *str == '-' || (*str >= '0' && *str <= '9')))
 		return (1);
-	if (*str == '+' && *str == '-' && !(*str >= '0' && *str <= '9'))
+	if ((*str == '+' || *str == '-') && !(str[1] >= '0' && str[1] <= '9'))
 		return (1);
 	str++;
 	while (*str)
@@ -44,8 +44,8 @@ int	spelling(char *str)
 
 void	error(t_node **a, char **av)
 {
-	a = NULL;
-	av = NULL;
-	write(1, "ERROR\n", 6);
+	write(1, "Error\n", 6);
+	freeav(av);
+	free_nodes(a);
 	exit(1);
 }
