@@ -47,6 +47,7 @@ t_node	*find_max(t_node *a)
 
 	if (a == NULL)
 		return (NULL);
+	max_node = NULL;
 	max = INT_MIN;
 	while (a)
 	{
@@ -67,6 +68,7 @@ t_node	*find_min(t_node *a)
 
 	if (a == NULL)
 		return (NULL);
+	min_node = NULL;
 	min = INT_MAX;
 	while (a)
 	{
