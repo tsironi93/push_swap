@@ -6,7 +6,7 @@
 /*   By: itsiros <itsiros@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 16:54:05 by itsiros           #+#    #+#             */
-/*   Updated: 2025/02/18 06:17:34 by itsiros          ###   ########.fr       */
+/*   Updated: 2025/02/19 03:36:50 by itsiros          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,21 +39,21 @@ static t_node	*find_cheapest(t_node *a)
 
 static void find_cost(t_node *a, t_node *b)
 {
-	t_node	*current;
+	t_node	*stack_a;
 
 	if (a == NULL || b == NULL)
 		return ;
-	current = a;
-	while (current)
+	stack_a = a;
+	while (stack_a)
 	{
-		current->cost = current->position;
-		if (current->median == false)
-			current->cost = node_len(a) - current->position;
-		if (current->target->median == true)
-			current->cost += current->target->position;
+		stack_a->cost = stack_a->position;
+		if (stack_a->median == false)
+			stack_a->cost = node_len(a) - stack_a->position;
+		if (stack_a->target->median == true)
+			stack_a->cost += stack_a->target->position;
 		else
-			current->cost += node_len(b) - current->target->position;
-		current = current->next;
+			stack_a->cost += node_len(b) - stack_a->target->position;
+		stack_a = stack_a->next;
 	}
 }
 
@@ -160,6 +160,11 @@ static void push_to_b(t_node **a, t_node **b)
 	t_node	*cheapest;
 
 	cheapest = find_cheapest(*a);
+	if (cheapest->cost == 0)
+	{
+		pb(b, a);
+		return ;
+	}
 	if (cheapest->median && cheapest->target->median)
 		force_rr_to_top(a, b, cheapest);
 	else if (!cheapest->median && !cheapest->target->median)
@@ -169,15 +174,61 @@ static void push_to_b(t_node **a, t_node **b)
 	pb(b, a);
 }
 
+static void find_target_home(t_node *a, t_node *b)
+{
+	long	closest;
+	t_node	*target;
+	t_node	*stack_a;
+	t_node	*stack_b;
+
+	stack_b = b;
+	while (stack_b)
+	{
+		closest = LONG_MAX;
+		stack_a = a;
+		while (stack_a)
+		{
+			if (stack_a->number > stack_b->number && stack_a->number < closest)
+			{
+				closest = stack_a->number;
+				target = stack_a;
+			}
+			stack_a = stack_a->next;
+		}
+		if (closest == LONG_MAX)
+			stack_b->target = find_min(a);
+		else
+			stack_b->target = target;
+		stack_b = stack_b->next;
+	}
+}
+
+static void finish_ps(t_node **a, t_node **b)
+{
+	position(*a);
+	position(*b);
+	find_target_home(*a, *b);
+}
+
 static void	push_back(t_node **a, t_node **b)
 {
 	check2push(a, (*b)->target, 0);
 	pa(a, b);
 }
 
+static void final(t_node **a)
+{
+	while ((*a)->number != find_min(*a)->number)
+	{
+		if (find_min(*a)->median)
+			ra(a);
+		else
+			rra(a);
+	}
+}
+
 void	ptob(t_node **a, t_node **b)
 {
-	//t_node	*temp;
 	int	len_a;
 
 	len_a = node_len(*a);
@@ -185,21 +236,17 @@ void	ptob(t_node **a, t_node **b)
 		pb(b, a);
 	if (len_a-- > 3 && !is_sorted(*a))
 		pb(b, a);
-		print_stacks(*a, *b);
 	while (len_a-- > 3)
 	{
 		start_ps(*a, *b);
 		push_to_b(a, b);
-		print_stacks(*a, *b);
 	}
 	sort_3(a);
-	print_stacks(*a, *b);
 	while (*b)
 	{
-		start_ps(*b, *a);
+ 		finish_ps(a, b);
 		push_back(a, b);
-		print_stacks(*a, *b);
 	}
-	print_stacks(*a, *b);
 	position(*a);
+	final(a);
 }

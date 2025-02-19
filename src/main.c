@@ -6,7 +6,7 @@
 /*   By: itsiros <itsiros@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 16:04:30 by itsiros           #+#    #+#             */
-/*   Updated: 2025/02/18 04:34:36 by itsiros          ###   ########.fr       */
+/*   Updated: 2025/02/19 03:35:48 by itsiros          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ int	main(int ac, char **av)
 	t_node	*a;
 	t_node	*b;
 
-	atexit(leaks);
 	a = NULL;
 	b = NULL;
 	if (ac == 1 || (ac == 2 && !av[1][0]))
