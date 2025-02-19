@@ -6,7 +6,7 @@
 /*   By: itsiros <itsiros@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 00:15:11 by itsiros           #+#    #+#             */
-/*   Updated: 2025/02/16 16:44:42 by itsiros          ###   ########.fr       */
+/*   Updated: 2025/02/19 15:41:54 by itsiros          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,10 @@ int	spelling(char *str)
 	return (0);
 }
 
-void	error(t_node **a, char **av, char *str)
+void	error(t_node **a, char **av)
 {
 	a = NULL;
 	av = NULL;
-	write(1, "ERROR: ", 7);
-	while (*str)
-	{
-		write(1, str, 1);
-		str++;
-	}
-	write (1, "\n", 1);
+	write(1, "ERROR\n", 6);
 	exit(1);
 }

@@ -6,7 +6,7 @@
 /*   By: itsiros <itsiros@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 16:04:30 by itsiros           #+#    #+#             */
-/*   Updated: 2025/02/19 03:35:48 by itsiros          ###   ########.fr       */
+/*   Updated: 2025/02/19 15:43:01 by itsiros          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,12 @@ static void	_stack_init(t_node **a, char **av)
 	while (av[i])
 	{
 		if (spelling(av[i]))
-			error(a, av, "SPELLING PROBLEM");
+			error(a, av);
 		num = ft_latoi(av[i]);
 		if (num < INT_MIN || num > INT_MAX)
-			error(a, av, "SURPASSED INT");
+			error(a, av);
 		if (check_doubles(*a, num))
-			error(a, av, "DOUBLES FOUND");
+			error(a, av);
 		append(a, num);
 		i++;
 	}

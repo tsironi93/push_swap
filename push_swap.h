@@ -6,7 +6,7 @@
 /*   By: itsiros <itsiros@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:23:15 by itsiros           #+#    #+#             */
-/*   Updated: 2025/02/18 04:24:27 by itsiros          ###   ########.fr       */
+/*   Updated: 2025/02/19 15:43:13 by itsiros          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int		check_doubles(t_node *a, int num);
 void	freeav(char **av);
 void	free_nodes(t_node **a);
 void	append(t_node **stack, int num);
-void	error(t_node **a, char **av, char *str);
+void	error(t_node **a, char **av);
 int		ft_abs(int a);
 
 
@@ -57,11 +57,13 @@ t_node	*find_min(t_node *a);
 void	sort_3(t_node **a);
 
 void	ptob(t_node **a, t_node **b);
-
-
-// -------------Tests---------------------
-void	print_stacks(t_node *a, t_node *b);
-void	print_tc(t_node *a);
-void	leaks(void);
+void	start_ps(t_node *a, t_node *b);
+void	finish_ps(t_node **a, t_node **b);
+void	final(t_node **a);
+void	position(t_node *a);
+void	push_to_b(t_node **a, t_node **b);
+void	force_rr_to_top(t_node **a, t_node **b, t_node *cheapest);
+void	force_rrr_to_top(t_node **a, t_node **b, t_node *cheapest);
+void	check2push(t_node **a, t_node *top, int flag);
 
 #endif
