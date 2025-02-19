@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: itsiros <itsiros@student.42.fr>            +#+  +:+       +#+        */
+/*   By: turmoil <turmoil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:23:15 by itsiros           #+#    #+#             */
-/*   Updated: 2025/02/19 15:43:13 by itsiros          ###   ########.fr       */
+/*   Updated: 2025/02/19 21:42:32 by turmoil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	free_nodes(t_node **a);
 void	append(t_node **stack, int num);
 void	error(t_node **a, char **av, bool avflag);
 int		ft_abs(int a);
-
 
 void	pa(t_node **a, t_node **b);
 void	pb(t_node **b, t_node **a);

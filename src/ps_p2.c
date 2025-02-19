@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ps_p2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: itsiros <itsiros@student.42.fr>            +#+  +:+       +#+        */
+/*   By: turmoil <turmoil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 15:18:09 by itsiros           #+#    #+#             */
-/*   Updated: 2025/02/19 15:25:21 by itsiros          ###   ########.fr       */
+/*   Updated: 2025/02/19 21:45:34 by turmoil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	position(t_node *a)
 	}
 }
 
-static void find_target_home(t_node *a, t_node *b)
+static void	find_target_home(t_node *a, t_node *b)
 {
 	long	closest;
 	t_node	*target;

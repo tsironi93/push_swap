@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: itsiros <itsiros@student.42.fr>            +#+  +:+       +#+        */
+/*   By: turmoil <turmoil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 18:21:07 by itsiros           #+#    #+#             */
-/*   Updated: 2025/02/18 00:36:24 by itsiros          ###   ########.fr       */
+/*   Updated: 2025/02/19 21:43:42 by turmoil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,11 +93,4 @@ void	sort_3(t_node **a)
 		rra(a);
 	if ((*a)->number > (*a)->next->number)
 		sa(a);
-}
-
-int	ft_abs(int a)
-{
-	if (a < 0)
-		return (a * -1);
-	return (a);
 }

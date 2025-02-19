@@ -3,14 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: itsiros <itsiros@student.42.fr>            +#+  +:+       +#+        */
+/*   By: turmoil <turmoil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 16:04:30 by itsiros           #+#    #+#             */
-/*   Updated: 2025/02/19 15:43:01 by itsiros          ###   ########.fr       */
+/*   Updated: 2025/02/19 21:44:23 by turmoil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+int	ft_abs(int a)
+{
+	if (a < 0)
+		return (a * -1);
+	return (a);
+}
 
 static long	ft_latoi(const char *str)
 {
