@@ -38,7 +38,7 @@ static long	ft_latoi(const char *str)
 	return (result * sign);
 }
 
-static void	_stack_init(t_node **a, char **av)
+static void	_stack_init(t_node **a, char **av, bool avflag)
 {
 	int		i;
 	long	num;
@@ -47,12 +47,12 @@ static void	_stack_init(t_node **a, char **av)
 	while (av[i])
 	{
 		if (spelling(av[i]))
-			error(a, av);
+			error(a, av, avflag);
 		num = ft_latoi(av[i]);
 		if (num < INT_MIN || num > INT_MAX)
-			error(a, av);
+			error(a, av, avflag);
 		if (check_doubles(*a, num))
-			error(a, av);
+			error(a, av, avflag);
 		append(a, num);
 		i++;
 	}
@@ -70,18 +70,16 @@ int	main(int ac, char **av)
 	if (ac == 2)
 	{
 		av = ft_split(av[1], ' ');
-		_stack_init(&a, av);
+		_stack_init(&a, av, true);
 		freeav(av);
 	}
 	else
-		_stack_init(&a, av + 1);
+		_stack_init(&a, av + 1, false);
 	if (!is_sorted(a))
 	{
 		if (node_len(a) == 3)
 			sort_3(&a);
 		ptob(&a, &b);
 	}
-	free_nodes(&b);
-	free_nodes(&a);
-	return (0);
+	return (free_nodes(&b), free_nodes(&a), 0);
 }

@@ -42,10 +42,11 @@ int	spelling(char *str)
 	return (0);
 }
 
-void	error(t_node **a, char **av)
+void	error(t_node **a, char **av, bool avflag)
 {
 	write(1, "Error\n", 6);
-	freeav(av);
+	if (avflag)
+		freeav(av);
 	free_nodes(a);
 	exit(1);
 }

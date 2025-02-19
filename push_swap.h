@@ -35,7 +35,7 @@ int		check_doubles(t_node *a, int num);
 void	freeav(char **av);
 void	free_nodes(t_node **a);
 void	append(t_node **stack, int num);
-void	error(t_node **a, char **av);
+void	error(t_node **a, char **av, bool avflag);
 int		ft_abs(int a);
 
 
